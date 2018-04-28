@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="webThemez.com">
+    <title>公司简介</title>
+    <link rel="favicon" href="__PUBLIC__/assets/images/favicon.png">
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="__PUBLIC__/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/assets/css/font-awesome.min.css">
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="__PUBLIC__/assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="__PUBLIC__/assets/css/style.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse">
+<div class="container">
+<div class="navbar-header">
+<!-- Button for smallest screens -->
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+<a class="navbar-brand" href="index.html">
+    <img src="__PUBLIC__/uploads/{$data.company_logo}" style="width: 100px; height: 60px;" alt="Techro HTML5 template"></a></div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav pull-right mainNav">
+<li class="active"><a href="{:url('Index/index')}">主页</a></li>
+<li><a href="{:url('Index/about')}">公司简介</a></li>
+<li><a href="{:url('Index/services')}">服务类型</a></li>
+<li><a href="{:url('Index/price')}">作品展示</a></li>
+    <li><a href="{:url('Index/projects')}">项目模块</a></li>
+<li><a href="{:url('Index/contact')}">联系我们</a></li>
+
+</ul>
+</div>
+<!--/.nav-collapse -->
+</div>
+</div>
+    <!-- /.navbar -->
+
+    <header id="head" class="secondary">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>About us</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- container -->
+    <section class="container">
+        <div class="row">
+            <!-- main content -->
+            <section class="col-sm-8 maincontent">
+                <h3>Our Company</h3>
+                <p>
+                    <img src="__PUBLIC__/uploads/{$data.company_logo}" alt="" class="img-rounded pull-right" width="300">
+
+                </p>
+               {$data.company_desc}
+                <h3>Our Achievements</h3>
+                {volist name="achievement" id="vo"}
+                <strong>{$vo.achievement_time}</strong>
+                <p>{$vo.achievement_desc}</p>
+                {/volist}
+
+
+            </section>
+            <!-- /main -->
+
+            <!-- Sidebar -->
+            <aside class="col-sm-4 sidebar sidebar-right">
+
+                <div class="panel">
+                    <h4>Latest News</h4>
+                    <ul class="list-unstyled list-spaces">
+                        <!-- <li><a href="">Responsive Design</a><br>
+                            <span class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, laborum.</span></li> -->
+                            {volist name="projects" id="vo"}
+                            <li><a href="">{$vo.team_name}</a><br>
+                            <span class="small text-muted">{$vo.team_desc}</span></li>
+                            {/volist}
+                    </ul>
+                </div>
+
+            </aside>
+            <!-- /Sidebar -->
+
+        </div>
+    </section>
+
+            <!-- /Sidebar -->
+
+        </div>
+    </section>
+    <!-- /container -->
+    <section class="team-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Our Team</h3>
+                    <p>Voluptate minus illo tenetur sint ab in culpa cumque impedit quibusdam. Saepe, molestias quia.Voluptate minus illo tenetur sint ab in culpa cumque impedit quibusdam. Saepe, molestias quia.Voluptate minus illo tenetur sint ab in culpa cumque impedit quibusdam. Saepe, molestias quia.</p>
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+                {volist name="team" id="vo"}
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <!-- Image Hover Block -->
+                        <div class="member-img">
+                            <!-- Image  -->
+                            <img class="img-responsive" style="width: 300px;height: 300px;" src="__PUBLIC__/uploads/{$vo.position_img}" alt="">
+                        </div>
+                        <!-- Member Details -->
+                        <h4>{$vo.position_name}</h4>
+                        <!-- Designation -->
+                        <span class="pos">{$vo.department_name}</span>
+                        <div class="team-socials">
+                            <a href="{$vo.f_url}"><i class="fa fa-facebook"></i></a>
+                            <a href="{$vo.w_url}"><i class="fa fa-dribbble"></i></a>
+                            <a><i class="fa fa-github" id="{$vo.position_id}"></i></a>
+                                        <p><span id="{$vo.position_id}_p" style="display:none">{$vo.desc}</span></p>
+                        </div>
+                    </div>
+                </div>
+                {/volist}
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="social text-center">
+                <!-- <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-flickr"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a> -->
+                lcp备案序号：{$data.company_records}&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 版本信息:{$data.company_versions}  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  所有版权归极创设计所有
+            </div>
+
+            <div class="clear"></div>
+            <!--CLEAR FLOATS-->
+        </div>
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 panel">
+                        <div class="panel-body">
+                            <p class="simplenav">
+                                <a href="{:url('Index/index')}">主页</a> |
+                                <a href="{:url('Index/about')}">公司简介</a> |
+                                <a href="{:url('Index/services')}">服务类型</a> |
+                                <a href="{:url('Index/price')}">作品展示</a> |
+                                <a href="{:url('Index/projects')}">项目模块</a> |
+                                <a href="{:url('Index/contact')}">联系我们</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    {volist name="arr" id="vo" }
+                    <div class="col-md-6 panel">
+                        <div class="panel-body">
+                            <p class="text-right">
+                                <a href="" target="_blank" title="模板之家">{$vo.link_name}</a> - Collect from <a href="" title="网页模板" target="_blank">{$vo.link_url}</a>
+                            </p>
+                        </div>
+                    </div>
+                    {/volist}
+                </div>
+                <!-- /row of panels -->
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/assets/js/custom.js"></script>
+    <script type='text/javascript' src='__PUBLIC__/home/js/jquery-3.2.1.min.js'></script>
+    <script type="text/javascript">
+    {volist name='team' id='v'}
+        $(document).ready(function(){
+            $("#{$v.position_id}").click(function(){
+                $("#{$v.position_id}_p").toggle();
+            });
+        });
+    {/volist}
+    </script>
+</body>
+</html>

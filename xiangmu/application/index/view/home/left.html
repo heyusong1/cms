@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>左侧导航menu</title>
+<link href="__ADMIN__/home/css/css.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="__ADMIN__/home/js/sdmenu.js"></script>
+<script type="text/javascript">
+	// <![CDATA[
+	var myMenu;
+	window.onload = function() {
+		myMenu = new SDMenu("my_menu");
+		myMenu.init();
+	};
+	// ]]>
+</script>
+<style type=text/css>
+html{ SCROLLBAR-FACE-COLOR: #538ec6; SCROLLBAR-HIGHLIGHT-COLOR: #dce5f0; SCROLLBAR-SHADOW-COLOR: #2c6daa; SCROLLBAR-3DLIGHT-COLOR: #dce5f0; SCROLLBAR-ARROW-COLOR: #2c6daa;  SCROLLBAR-TRACK-COLOR: #dce5f0;  SCROLLBAR-DARKSHADOW-COLOR: #dce5f0; overflow-x:hidden;}
+body{overflow-x:hidden; background:url(images/main/leftbg.jpg) left top repeat-y #f2f0f5; width:194px;}
+</style>
+</head>
+<body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
+<div id="left-top">
+	<div><img src="__ADMIN__/home/images/main/member.gif" width="44" height="44" /></div>
+    <span>用户：admin<br>角色：超级管理员</span>
+</div>
+    <div style="float: left" id="my_menu" class="sdmenu">
+       <div>
+        <span>管理员设置</span>
+        <a href="{:url('Consumer/user_list')}" target="mainFrame" onFocus="this.blur()">管理员</a>
+        <a href="{:url('Consumer/user_add')}" target="mainFrame" onFocus="this.blur()">添加管理员</a>
+        <a href="{:url('Consumer/update_pwd')}" target="mainFrame" onFocus="this.blur()">修改密码</a>
+      </div>
+       <div>
+        <span>公司信息设置</span>
+        <a href="{:url('Company/show')}" target="mainFrame" onFocus="this.blur()">公司信息</a>
+        <a href="{:url('Company/achievement')}" target="mainFrame" onFocus="this.blur()">公司成就</a>
+      </div>
+      <div>
+        <span>公司团队</span>
+        <a href="{:url('Team/department')}" target="mainFrame" onFocus="this.blur()">公司部门</a>
+        <a href="{:url('Team/position')}" target="mainFrame" onFocus="this.blur()">部门职位</a>
+      </div>
+         <div>
+        <span>作品展示</span>
+        <a href="{:url('Consult/insert')}" target="mainFrame" onFocus="this.blur()">商品添加</a>
+        <a href="{:url('Consult/show')}" target="mainFrame" onFocus="this.blur()">添加演示</a>
+        <a href="{:url('Consult/show_video')}" target="mainFrame" onFocus="this.blur()">展示商品</a>
+      </div>
+        <div>
+        <span>样品管理</span>
+      <a href="{:url('Projects/pro_insert')}" target="mainFrame" onFocus="this.blur()">添加类型</a>
+      <a href="{:url('Projects/pro_type')}" target="mainFrame" onFocus="this.blur()">添加项目</a>
+      <a href="{:url('Projects/pro_show')}" target="mainFrame" onFocus="this.blur()">项目展示</a>
+      </div>
+
+      <div>
+        <span>广告设置</span>
+        <a href="{:url('Home/advert_add')}" target="mainFrame" onFocus="this.blur()">广告添加</a>
+        <a href="{:url('Advert/show')}" target="mainFrame" onFocus="this.blur()">广告查看</a>
+      </div>
+      <div class="collapsed">
+        <span>留言板设置</span>
+        <a href="{:url('Leave/main_message')}" target="mainFrame" onFocus="this.blur()">留言页</a>
+      </div>
+      <div>
+        <span>友情链接设置</span>
+        <a href="{:url('Link/link_insert')}"     public function message_info()
+           target="mainFrame" onFocus="this.blur()">增加链接</a>
+        <a href="{:url('Link/link_show')}" target="mainFrame" onFocus="this.blur()">友情链接预览</a>
+      </div>    
+    </div>
+</body>
+</html>
