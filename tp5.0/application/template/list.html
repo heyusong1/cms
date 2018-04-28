@@ -1,0 +1,39 @@
+{include file='public/header' /}
+<p><a href="{:url('admin/<?=$shortname?>/add')}">添加数据</a></p>
+<table border="1" class="table table-bordered table-hover text-center">
+<tr>
+<th>序号</th>
+<?php
+foreach($tableStructure as $value)
+{
+if($value['Field']=='id'){continue;}
+?>
+<th><?=$value['Comment']?></th>
+<?php
+}
+?>
+<th colspan="2">操作</th>
+</tr>
+{volist name='data' id='item' key='i'}
+<tr>
+<td>{$i}</td>
+<?php
+foreach($tableStructure as $value)
+{
+if($value['Field']=='id'){continue;}
+if(substr($value['Type'],0,7)=='tinyint'){
+$field=str_ireplace('_id','',$value['Field']);
+}else{
+$field=$value['Field'];
+}
+?>
+<td>{$item.<?=$field?>??''}</td>
+<?php
+}
+?>
+<td><a href="{:url('admin/<?=$shortname?>/edit','id='.$item['id'])}">编辑</a></td>
+<td><a href="{:url('admin/<?=$shortname?>/delete','id='.$item['id'])}" class="deleteOneData">删除</a></td>
+</tr>
+{/volist}
+</table>
+{include file='public/footer' /}

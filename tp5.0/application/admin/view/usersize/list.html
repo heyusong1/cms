@@ -1,0 +1,28 @@
+{include file='public/header' /}
+<p><a href="{:url('admin/usersize/add')}">添加数据</a></p>
+<table border="1" class="table table-bordered table-hover text-center">
+<tr>
+<th>序号</th>
+<th>用户名</th>
+<th>密码</th>
+<th>性别</th>
+<th>年龄</th>
+<th>图片</th>
+<th>文本域</th>
+<th colspan="2">操作</th>
+</tr>
+{volist name='data' id='item' key='i'}
+<tr>
+<td>{$i}</td>
+<td>{$item.name??''}</td>
+<td>{$item.password??''}</td>
+<td>{$item.sex??''}</td>
+<td>{$item.age??''}</td>
+<td>{$item.img??''}</td>
+<td>{$item.text??''}</td>
+<td><a href="{:url('admin/usersize/edit','id='.$item['id'])}">编辑</a></td>
+<td><a href="{:url('admin/usersize/delete','id='.$item['id'])}" class="deleteOneData">删除</a></td>
+</tr>
+{/volist}
+</table>
+{include file='public/footer' /}

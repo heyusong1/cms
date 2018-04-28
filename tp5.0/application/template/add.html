@@ -1,0 +1,49 @@
+{include file='public/header' /}
+<form action="{:url('<?=$shortname?>/add_ok')}" method="post" class="form-x">
+<?php
+foreach($tableStructure as $value)
+{
+/*如果是id字段则不做处理（id字段做为主键，其会自动生成，无需手动添加），继续下一次循环（处理下一个字段）*/
+if($value['Field']=='id'){continue;}
+/*如果字段类型是tinyint，则生成下拉列表（将所有引用自其他表的关键字段均设置为tinyint类型*/
+if(substr($value['Type'],0,7)=='tinyint'){
+    /*判断tinyint类型字段的值是否包含有'_id'字符，如果有，则去除掉'_id'字符，将剩余字符作为下拉列框中生成option项的foreach循环的name值*/
+    if(stripos($value['Field'],'_id')){
+        $field=str_replace('_id','',$value['Field']);
+    }
+?>
+
+<div class="form-group">
+    <div class="label">
+        <label><?=$value['Comment']?></label>
+    </div>
+    <div class="field">
+        <select name="<?=$value['Field']?>" class="input">
+            <option value="0">--请选择--</option>
+            {foreach name='data.<?=$field?>' item='val'}
+            <option value="{$val.id}">{$val.name}</option>
+            {/foreach}
+        </select>
+    </div>
+</div>
+<?php
+}
+else{
+?>
+<div class="form-group">
+    <div class="label">
+        <label><?=$value['Comment']?></label>
+    </div>
+    <div class="field">
+        <input type="text" name="<?=$value['Field']?>" class="input">
+    </div>
+</div>
+<?php
+}
+}
+?>
+<div class="form-button">
+    <input type="submit" value="提交" class="button bg-main">
+</div>
+</form>
+{include file='public/footer' /}

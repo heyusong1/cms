@@ -1,5 +1,5 @@
 <?php
-namespace app\admin\Model
+namespace app\admin\Model;
 
 
 class Index 
